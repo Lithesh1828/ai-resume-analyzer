@@ -1,0 +1,16 @@
+import pandas as pd
+
+skills = pd.read_csv("data/skills.csv", header=None)
+
+skills_list = skills[0].tolist()
+
+def extract_skills(text):
+
+    found_skills = []
+
+    for skill in skills_list:
+
+        if skill.lower() in text.lower():
+            found_skills.append(skill)
+
+    return list(set(found_skills))
